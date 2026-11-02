@@ -1,0 +1,46 @@
+### Tüm yazılar
+GET http://127.0.0.1:5002/posts
+
+### Yeni yazı oluştur
+POST http://127.0.0.1:5002/posts
+Content-Type: application/json
+
+{
+    "title": "My First Blog Post",
+    "content": "This is the content of my first blog post.",
+    "category": "Technology",
+    "tags": ["Tech", "Programming"]
+}
+
+### Tek yazı
+GET http://127.0.0.1:5002/posts/1
+
+### Arama
+GET http://127.0.0.1:5002/posts?term=tech
+
+### Güncelle
+PUT http://127.0.0.1:5002/posts/1
+Content-Type: application/json
+
+{
+    "title": "My Updated Blog Post",
+    "content": "This is the updated content.",
+    "category": "Technology",
+    "tags": ["Tech"]
+}
+
+### Hatalı istek (başlık yok, tags liste değil)
+POST http://127.0.0.1:5002/posts
+Content-Type: application/json
+
+{
+    "content": "No title here",
+    "category": "Test",
+    "tags": "not-a-list"
+}
+
+### Sil
+DELETE http://127.0.0.1:5002/posts/1
+
+### Olmayan yazı
+GET http://127.0.0.1:5002/posts/999
